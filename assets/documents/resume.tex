@@ -1,0 +1,90 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.60in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{microtype}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\definecolor{ink}{HTML}{172019}
+\definecolor{rule}{HTML}{4D7155}
+\hypersetup{pdftitle={Hunter Liles - Resume},pdfauthor={Hunter Liles}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\large\bfseries\color{ink}}{}{0pt}{}[\vspace{1pt}\color{rule}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\urlstyle{same}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill #2\par
+  \textit{#3}\hfill \textit{#4}\par
+}
+
+\begin{document}
+\begin{center}
+  {\LARGE\bfseries Hunter Liles}\\[3pt]
+  \href{https://hunter-liles.com}{hunter-liles.com} \enspace|\enspace
+  \href{mailto:hunterliles06@gmail.com}{hunterliles06@gmail.com} \enspace|\enspace
+  337-358-0667\\[2pt]
+  \href{https://github.com/HunterLiles}{github.com/HunterLiles} \enspace|\enspace
+  \href{https://www.linkedin.com/in/hunter-liles/}{linkedin.com/in/hunter-liles/}
+\end{center}
+\vspace{-9pt}
+
+\section{Education}
+\textbf{McNeese State University}\hfill Expected May 2028\par
+Computer Science and Computational Science\par
+% Cumulative GPA confirmed as 2.51; omitted from resume.
+
+\section{Technical Skills}
+\textbf{Languages:} C++, C, Rust, Python, Java, SQL, GLSL, HLSL\par
+\textbf{Graphics:} OpenGL, Vulkan, GLFW\par
+\textbf{Tools:} Git, Linux, LaTeX\par
+
+\section{Research Experience}
+% Replace Present with the actual start month/year--Present when confirmed.
+\entry{Undergraduate Student Researcher}{Present}{McNeese State University - Engineering \& Computer Science}{Lake Charles, LA}
+\begin{itemize}
+  \item Work with another undergraduate researcher and a faculty supervisor to explore signed distance fields.
+\end{itemize}
+
+\section{Selected Projects}
+\textbf{\href{https://github.com/daneboyd20001/SRPLightingEngine}{Signed Distance Field Rendering Engine}}\hfill C++, OpenGL, GLSL\par
+\begin{itemize}
+  \item Built the C++ application and controls for a two-person SDF rendering project; my partner wrote most of the shaders.
+  \item Wrote quaternion math for camera rotation and controls for ray travel distance and surface-hit tolerance; passed a scene ID from CPU to GPU to switch between SDF functions.
+  \item Added shader hot reload by comparing saved files with a cached version, along with FPS and frame-time counters to help test changes.
+\end{itemize}
+\vspace{2pt}
+\textbf{\href{https://github.com/HunterLiles/Blossom}{Blossom - 2D Engine \& Editor}}\hfill C++, OpenGL\par
+\begin{itemize}
+  \item Rewriting the engine in OpenGL with my own math library, including 2D/3D vectors and 4$\times$4 matrices for camera, view, and projection calculations.
+  \item Built a tile editor in the earlier prototype using an array of integer texture IDs to place and remove tiles, with binary files for loading and saving levels.
+  \item Saved tile changes as they occurred and again when closing a level; added shader hot reload to the earlier prototype.
+\end{itemize}
+\vspace{2pt}
+\textbf{Terminal 3D Renderer}\hfill C, ANSI, POSIX termios\par
+\begin{itemize}
+  \item Built a terminal point renderer in C with no third-party dependencies, using $x/z$ and $y/z$ perspective projection and custom transformations to terminal screen coordinates.
+  \item Wrote a function to map a floating-point frame buffer to an ASCII gradient, currently setting point values manually; used termios for input settings and ANSI for display and color.
+\end{itemize}
+
+\section{Additional Experience}
+% Replace Present with actual start month/year--Present for each role.
+\entry{Math \& Science Tutor}{Present}{MAST Department, McNeese State University}{Lake Charles, LA}
+\begin{itemize}
+  \item Help around five students a week with math through Calculus II, plus physics and computer science topics when needed.
+\end{itemize}
+\vspace{2pt}
+\entry{Church IT}{Present}{Iowa First Baptist Church}{Iowa, LA}
+\begin{itemize}
+  \item Chose and set up the church's replacement computer to fit its needs; continue to support that computer.
+\end{itemize}
+
+\end{document}
