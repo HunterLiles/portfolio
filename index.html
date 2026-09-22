@@ -7,7 +7,7 @@
     <title>Hunter Liles — Graphics, Systems &amp; Research</title>
     <meta
       name="description"
-      content="Hunter Liles — Computer Science and Computational Mathematics at McNeese State University. With projects in SDF rendering, graphics software, and systems."
+      content="Hunter Liles — Computer Science and Computational Science at McNeese State University. With projects in SDF rendering, graphics software, and systems."
     />
     <meta
       property="og:title"
@@ -15,7 +15,7 @@
     />
     <meta
       property="og:description"
-      content="Computer graphics is my niche. Curiosity takes me further. Explore my projects, research, and experience."
+      content="Computer graphics is my niche. But, I will go where ever a problem takes me."
     />
     <meta property="og:type" content="website" />
     <!-- Add canonical, og:url and an absolute og:image URL once the domain is confirmed. -->
@@ -38,6 +38,7 @@
           <ul>
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -48,14 +49,14 @@
           <p class="eyebrow">GRAPHICS / SYSTEMS / RESEARCH</p>
           <h1 id="identity">Hunter Liles<span class="accent">.</span></h1>
           <p class="degree">
-            Computer Science &amp; Computational Mathematics<br /><span
+            Computer Science &amp; Computational Science<br /><span
               class="muted"
               >McNeese State University</span
             >
           </p>
           <p class="positioning">
-            Computer graphics is my niche, but I’m driven by learning new
-            systems and solving difficult problems wherever they lead.
+            Computer graphics is my niche, but I will go where a problem takes
+            me.
           </p>
           <div class="link-row" role="group" aria-label="Professional links">
             <a
@@ -95,17 +96,32 @@
             <div class="featured-grid">
               <div>
                 <p>
-                  As an undergraduate researcher, I develop a custom SDF
-                  rendering engine with C++, Vulkan, and GLSL with another
-                  undergraduate researcher at McNeese.
+                  As an undergraduate researcher, I build the C++ application
+                  and controls for a custom SDF rendering engine in OpenGL and
+                  GLSL, working alongside another undergraduate researcher who
+                  writes most of the shaders.
                 </p>
                 <ul class="evidence">
+                  <li>
+                    Wrote the quaternion math behind camera rotation, plus the
+                    controls for ray travel distance and surface-hit tolerance.
+                  </li>
+                  <li>
+                    Pass a scene ID from CPU to GPU to switch between SDF
+                    functions, and added shader hot reload by comparing saved
+                    files against a cached version.
+                  </li>
+                  <li>
+                    Built in FPS and frame-time counters to help test changes as
+                    we go.
+                  </li>
                   <li>
                     The screenshots show different fractals or infinitely
                     repeating geometry created through trigonometric functions.
                   </li>
                 </ul>
-                <p class="technologies">C++ / GLSL / Raylib / SDFs</p>
+                <!-- more here: currently porting the renderer from OpenGL to Vulkan — worth its own writeup on why, and what's changed, once it's further along -->
+                <p class="technologies">C++ / OpenGL / GLSL / SDFs</p>
                 <a
                   class="project-link"
                   href="https://github.com/daneboyd20001/SRPLightingEngine"
@@ -155,8 +171,8 @@
               </div>
               <h3 id="blossom-heading">Blossom</h3>
               <p class="project-summary">
-                A small, data-oriented Vulkan sandbox for experimenting with
-                rendering and development tools.
+                A 2D engine and editor, being rewritten in OpenGL with my own
+                math library.
               </p>
               <figure class="project-media">
                 <img
@@ -168,24 +184,33 @@
                   alt="Earlier Blossom editor showing a two-dimensional scene of trees in two viewports."
                 />
                 <figcaption>
-                  Earlier Blossom build. The linked branch now uses Vulkan.
+                  Earlier Blossom build — the tile editor prototype.
                 </figcaption>
               </figure>
               <ul class="evidence">
                 <li>
-                  The Vulkan branch uses GLFW, Dear ImGui, and HLSL shaders.
+                  Rewriting the engine with a custom math library, including
+                  2D/3D vectors and 4×4 matrices for camera, view, and
+                  projection calculations.
                 </li>
                 <li>
-                  Shader reload keeps the current pipelines active if a
-                  replacement is invalid, preserving a working render while
-                  iterating.
+                  The earlier prototype's tile editor uses an array of integer
+                  texture IDs to place and remove tiles, with binary files for
+                  loading and saving levels.
+                </li>
+                <li>
+                  Tile changes save as they happen and again when closing a
+                  level; shader hot reload carried over from the earlier
+                  prototype.
                 </li>
               </ul>
-              <p class="technologies">C++ / Vulkan / HLSL / Dear ImGui</p>
+              <!-- more here: hoping to bring Blossom to Vulkan next, same as the SDF engine — explain the motivation and what changes once that lands -->
+              <p class="technologies">C++ / OpenGL</p>
               <a
                 class="project-link"
-                href="https://github.com/HunterLiles/Blossom/tree/Vulkan"
-                >Inspect the Vulkan branch <span aria-hidden="true">↗</span></a
+                href="https://github.com/HunterLiles/Blossom"
+                >Explore the Blossom repository
+                <span aria-hidden="true">↗</span></a
               >
             </article>
             <article aria-labelledby="trading-heading">
@@ -208,6 +233,7 @@
                   confirmed.
                 </p>
               </div>
+              <!-- more here: this project isn't on the resume at all yet — write up the problem, the stack, and what you actually built before this section can leave draft status -->
               <a
                 class="project-link"
                 href="https://github.com/HunterLiles/Trading"
@@ -239,10 +265,10 @@
                   McNeese State University · Engineering &amp; Computer Science
                 </p>
                 <p>
-                  Research in graphics and interactive systems with another
-                  undergraduate reseracher under the stewardship of Dr.
-                  Lavergne.
+                  Work with another undergraduate researcher and a faculty
+                  supervisor to explore signed distance fields.
                 </p>
+                <!-- more here: resume keeps this to one line — expand on the research question, what's been tried, and Dr. Lavergne's role as supervisor -->
               </div>
             </article>
             <article class="experience-row">
@@ -253,7 +279,8 @@
                   McNeese State University · Math &amp; Science
                 </p>
                 <p>
-                  Helping fellow students understand math and physics concepts.
+                  Help around five students a week with math through Calculus
+                  II, plus physics and computer science topics when needed.
                 </p>
               </div>
             </article>
@@ -263,9 +290,10 @@
                 <h3>Church IT</h3>
                 <p class="organization">Iowa First Baptist Church</p>
                 <p>
-                  Hardware maintenance and technical troubleshooting for the
-                  church’s media/worship team.
+                  Chose and set up the church’s replacement computer to fit its
+                  needs; continue to support that computer.
                 </p>
+                <!-- more here: resume gives one sentence — this could cover the full scope of what you support, not just the one computer -->
               </div>
             </article>
           </div>
@@ -281,7 +309,7 @@
           <div class="qualifications-grid">
             <div>
               <h3>McNeese State University</h3>
-              <p>Computer Science &amp;<br />Computational Mathematics</p>
+              <p>Computer Science &amp;<br />Computational Science</p>
               <p class="muted">
                 Dual degree / major<br />Expected May 2028 · Lake Charles, LA
               </p>
@@ -289,11 +317,11 @@
             <dl class="skills">
               <div>
                 <dt>Languages</dt>
-                <dd>C++, C, Rust, GLSL, HLSL, SQL, Java, Python</dd>
+                <dd>C++, C, Rust, Python, Java, SQL, GLSL, HLSL</dd>
               </div>
               <div>
                 <dt>Graphics</dt>
-                <dd>OpenGL, Vulkan, SDF rendering, physics simulation</dd>
+                <dd>OpenGL, Vulkan, GLFW, SDF rendering, physics simulation</dd>
               </div>
               <div>
                 <dt>Tools</dt>
@@ -341,7 +369,7 @@
                 programming and graphics, you will find me out on the golf
                 course or running around my hometown. From a young age I was out
                 on the golf course getting that little white ball in the hole.
-                Likewise, from a youngage I also ran religously. While in high
+                Likewise, from a young age I also ran religiously. While in high
                 school I pursued those two sports heavily and was able to get to
                 state in running and regionals (missed state by one spot my
                 senior year) in golf.
@@ -370,7 +398,11 @@
                   Pause animation
                 </button>
               </div>
-              <p id="renderer-status" class="small muted" aria-live="polite"></p>
+              <p
+                id="renderer-status"
+                class="small muted"
+                aria-live="polite"
+              ></p>
               <p>A simple 3D renderer inside JS. All handwritten.</p>
             </div>
           </div>
@@ -389,7 +421,7 @@
           ><a href="https://www.linkedin.com/in/hunter-liles-128145332/"
             >LinkedIn ↗</a
           ><a href="assets/documents/resume.pdf">Resume ↗</a
-          ><a href="#top">Back to top ↑</a>
+          ><a href="blog.html">Blog</a><a href="#top">Back to top ↑</a>
         </div>
         <p class="small muted footer-note">
           Hunter Liles · Built with

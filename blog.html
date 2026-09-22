@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#222222" />
+    <title>Blog — Hunter Liles</title>
+    <meta
+      name="description"
+      content="Hunter Liles — short technical write-ups on things learned and discovered while working on graphics and systems projects."
+    />
+    <meta property="og:title" content="Blog — Hunter Liles" />
+    <meta
+      property="og:description"
+      content="Short write-ups on things learned and discovered while working on graphics and systems projects."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/vendor/terminal-0.7.5.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="blog.css" />
+    <script src="blog.js" defer></script>
+  </head>
+  <body class="terminal">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="container">
+      <header class="terminal-nav site-header">
+        <a
+          class="wordmark"
+          href="index.html#top"
+          aria-label="hl — Hunter Liles, back to home"
+          >hl<span aria-hidden="true">_</span></a
+        >
+        <nav class="terminal-menu" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="blog.html" aria-current="page">Blog</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main id="main">
+        <section class="intro" id="top" aria-labelledby="identity">
+          <p class="eyebrow">NOTES / WRITE-UPS</p>
+          <h1 id="identity">Blog<span class="accent">.</span></h1>
+          <p class="positioning">
+            Short technical write-ups on things I learned or discovered
+            while working on my projects.
+          </p>
+        </section>
+
+        <section id="posts" class="section" aria-labelledby="posts-heading">
+          <div class="section-heading">
+            <h2 id="posts-heading">
+              <span class="section-index">01 /</span> Write-ups
+            </h2>
+            <span class="muted small">NEWEST FIRST</span>
+          </div>
+
+          <p id="writing-status" role="status">Loading posts…</p>
+          <div class="writing-list" id="writing-list" aria-busy="true"></div>
+          <noscript><p>Enable JavaScript to view the post list.</p></noscript>
+        </section>
+      </main>
+      <footer id="contact" class="site-footer">
+        <div>
+          <p class="eyebrow">LET’S TALK</p>
+          <h2>Have an interesting problem?</h2>
+          <a class="email-link" href="mailto:hunterliles06@gmail.com"
+            >hunterliles06@gmail.com <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/HunterLiles">GitHub ↗</a
+          ><a href="https://www.linkedin.com/in/hunter-liles-128145332/"
+            >LinkedIn ↗</a
+          ><a href="assets/documents/resume.pdf">Resume ↗</a
+          ><a href="index.html#top">Home</a>
+        </div>
+        <p class="small muted footer-note">
+          Hunter Liles · Built with
+          <a href="https://terminalcss.xyz/">Terminal.css</a>.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
