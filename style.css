@@ -7,7 +7,6 @@
   --secondary-color: #c2c2b0;
   --tertiary-color: #d7c483;
   --code-bg-color: #1c1c1c;
-  --warm-color: #c9a554;
   --rust-color: #bb7744;
   --global-font-size: 15px;
   --global-line-height: 1.65em;
@@ -51,11 +50,14 @@ a {
 .status {
   color: var(--secondary-color);
 }
-.accent {
+.accent,
+.wordmark span {
   color: var(--rust-color);
 }
 .section-index {
   color: var(--primary-color);
+  margin-right: 14px;
+  font-weight: normal;
 }
 .small,
 .eyebrow,
@@ -64,7 +66,7 @@ a {
   font-size: 12px;
 }
 .eyebrow {
-  color: var(--warm-color);
+  color: var(--primary-color);
   letter-spacing: 0.1em;
   margin-bottom: 14px;
 }
@@ -91,15 +93,12 @@ a {
   letter-spacing: -0.08em;
   color: var(--font-color);
 }
-.wordmark span {
-  color: var(--rust-color);
-}
 .terminal-menu ul {
   margin: 0;
 }
-.terminal-menu li a {
+.terminal-menu li a:not(.btn) {
   min-height: var(--tap-target);
-  display: flex !important;
+  display: flex;
   align-items: center;
 }
 .intro {
@@ -150,10 +149,6 @@ a {
 }
 .section-heading h2 {
   margin: 0;
-}
-.section-index {
-  margin-right: 14px;
-  font-weight: normal;
 }
 .terminal h3 {
   font-size: 18px;
@@ -324,7 +319,6 @@ summary {
   margin-bottom: 20px;
 }
 .renderer-stage {
-  position: relative;
   aspect-ratio: 8 / 5;
   background: var(--code-bg-color);
   border: 1px solid var(--rule-color);
@@ -400,7 +394,6 @@ summary {
     padding-inline: 20px;
   }
   .site-header {
-    min-height: 100px;
     flex-direction: row;
     align-items: center;
     gap: 20px;

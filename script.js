@@ -1,16 +1,14 @@
 (() => {
   "use strict";
 
-  const container = document.querySelector("#renderer");
   const canvas = document.querySelector("#renderer-canvas");
   const toggle = document.querySelector("#renderer-toggle");
   const status = document.querySelector("#renderer-status");
-  if (!container || !canvas || !toggle || !status) return;
+  if (!canvas || !toggle || !status) return;
 
   let context;
   let frame = 0;
   let visible = false;
-  let initialized = false;
   let failed = false;
   let lastTime = 0;
   let angle = 0.55;
@@ -19,6 +17,8 @@
   const vertices = [];
   const rings = 24;
   const sides = 12;
+  const tiltSin = Math.sin(0.9);
+  const tiltCos = Math.cos(0.9);
 
   // A compact parametric torus; this demo is independent of the flagship projects.
   for (let ring = 0; ring < rings; ring++) {
@@ -48,12 +48,11 @@
     context.clearRect(0, 0, width, height);
     const sin = Math.sin(angle);
     const cos = Math.cos(angle);
-    const tilt = 0.9;
     const projected = vertices.map(([x, y, z]) => {
       const rx = x * cos - z * sin;
       const rz = x * sin + z * cos;
-      const ry = y * Math.cos(tilt) - rz * Math.sin(tilt);
-      const depth = y * Math.sin(tilt) + rz * Math.cos(tilt) + 5;
+      const ry = y * tiltCos - rz * tiltSin;
+      const depth = y * tiltSin + rz * tiltCos + 5;
       // Geometry remains in front of the camera; no near-plane clipping is needed.
       const scale = (height * 1.05) / depth;
       return [width / 2 + rx * scale, height / 2 + ry * scale, depth];
@@ -78,7 +77,7 @@
   }
 
   function resize() {
-    if (!initialized || failed) return;
+    if (!context || failed) return;
     try {
       const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
       const width = Math.max(1, Math.round(canvas.clientWidth * ratio));
@@ -106,7 +105,7 @@
   }
 
   function sync() {
-    if (!initialized || failed) return;
+    if (!context || failed) return;
     cancelAnimationFrame(frame);
     frame = 0;
     lastTime = 0;
@@ -119,11 +118,10 @@
   }
 
   function initialize() {
-    if (initialized || failed) return;
+    if (context || failed) return;
     try {
       context = canvas.getContext("2d");
       if (!context) return fail();
-      initialized = true;
       canvas.hidden = false;
       resize();
       if (failed) return;

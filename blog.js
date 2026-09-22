@@ -31,17 +31,18 @@
     }`;
   }
 
-  // blog.html: render the post list from posts.json.
+  // blog.html and the homepage teaser: render posts from posts.json.
   async function initIndex(list) {
     const status = document.getElementById("writing-status");
     try {
       const posts = await fetchFile("blog/posts.json");
+      posts.sort((a, b) => b.date.localeCompare(a.date));
       if (!posts.length) {
         status.textContent = "Nothing published yet. Check back soon.";
         return;
       }
-      posts.sort((a, b) => b.date.localeCompare(a.date));
-      const cards = posts.map((post) => {
+      const shown = posts.slice(0, Number(list.dataset.limit) || posts.length);
+      const cards = shown.map((post) => {
         const article = document.createElement("article");
         article.className = "writing-card";
         article.innerHTML = `
@@ -86,6 +87,16 @@
       const markdown = await fetchFile(`posts/${encodeURIComponent(slug)}.md`, "text");
       // Markdown is authored in this repository and may contain trusted HTML.
       body.innerHTML = marked.parse(markdown);
+      if (typeof renderMathInElement === "function") {
+        renderMathInElement(body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "\\[", right: "\\]", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+          ],
+        });
+      }
       document.title = `${meta.title} — Hunter Liles`;
       document.getElementById("post-title").textContent = meta.title;
       document.getElementById("post-meta").innerHTML = renderMeta(meta);

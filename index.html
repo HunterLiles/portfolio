@@ -22,7 +22,9 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/vendor/terminal-0.7.5.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="blog.css" />
     <script src="script.js" defer></script>
+    <script src="blog.js" defer></script>
   </head>
   <body class="terminal">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -55,8 +57,8 @@
             >
           </p>
           <p class="positioning">
-            Computer graphics is my niche, but I will go where a problem takes
-            me.
+            Computer graphics is my niche, but I will go anywhere a problem
+            takes me.
           </p>
           <div class="link-row" role="group" aria-label="Professional links">
             <a
@@ -216,7 +218,7 @@
             <article aria-labelledby="trading-heading">
               <div class="project-heading">
                 <p class="eyebrow">SYSTEMS / COMPUTATION</p>
-                <span class="status muted">Details pending</span>
+                <span class="status">Details pending</span>
               </div>
               <h3 id="trading-heading">Algorithmic Trading System</h3>
               <p class="project-summary">
@@ -243,7 +245,72 @@
                 Repository access may be privated.
               </p>
             </article>
+            <article aria-labelledby="terminal-renderer-heading">
+              <div class="project-heading">
+                <p class="eyebrow">TERMINAL GRAPHICS</p>
+                <span class="status">In progress</span>
+              </div>
+              <h3 id="terminal-renderer-heading">3D Terminal Renderer</h3>
+              <p class="project-summary">
+                A dependency-free C renderer that draws 3D scenes as ASCII
+                art directly in the terminal.
+              </p>
+              <!-- more here: add a screenshot or asciinema recording of the renderer in action once you have one -->
+              <ul class="evidence">
+                <li>
+                  Builds the terminal UI itself with termios for input and
+                  ANSI escape codes for display and color, no third-party
+                  dependencies.
+                </li>
+                <li>
+                  Projects 3D points with x/z and y/z perspective and custom
+                  transforms into terminal screen coordinates, then maps a
+                  floating-point framebuffer to an ASCII gradient to draw
+                  them.
+                </li>
+                <li>
+                  Wrote a small vector type in C instead of plain arrays,
+                  since a fixed-size array meant passing width and height
+                  everywhere and couldn't support resizing the terminal
+                  window intuitively.
+                </li>
+              </ul>
+              <!-- more here: point values are currently set manually per the resume — worth describing what automating that would look like once it's built -->
+              <p class="technologies">C / ANSI / termios</p>
+              <a
+                class="project-link"
+                href="https://github.com/HunterLiles/tui-3d-renderer"
+                >Explore the repository <span aria-hidden="true">↗</span></a
+              >
+            </article>
           </div>
+        </section>
+
+        <section id="writing" class="section" aria-labelledby="writing-heading">
+          <div class="section-heading">
+            <h2 id="writing-heading">
+              <span class="section-index">02 /</span> Recent write-ups
+            </h2>
+            <span class="muted small">FROM THE BLOG</span>
+          </div>
+          <p id="writing-status" role="status" class="muted small">
+            Loading posts…
+          </p>
+          <div
+            class="writing-list"
+            id="writing-list"
+            data-limit="3"
+            aria-busy="true"
+          ></div>
+          <a class="project-link" href="blog.html"
+            >View all write-ups <span aria-hidden="true">↗</span></a
+          >
+          <noscript
+            ><p>
+              Enable JavaScript to view recent write-ups, or
+              <a href="blog.html">visit the blog directly</a>.
+            </p></noscript
+          >
         </section>
 
         <section
@@ -253,10 +320,10 @@
         >
           <div class="section-heading">
             <h2 id="experience-heading">
-              <span class="section-index">02 /</span> Research &amp; experience
+              <span class="section-index">03 /</span> Research &amp; experience
             </h2>
           </div>
-          <div class="experience-list">
+          <div>
             <article class="experience-row">
               <p class="muted">Current</p>
               <div>
@@ -302,7 +369,7 @@
         <section class="section" aria-labelledby="education-heading">
           <div class="section-heading">
             <h2 id="education-heading">
-              <span class="section-index">03 /</span> Education &amp; technical
+              <span class="section-index">04 /</span> Education &amp; technical
               skills
             </h2>
           </div>
@@ -334,7 +401,7 @@
         <section id="about" class="section" aria-labelledby="about-heading">
           <div class="section-heading">
             <h2 id="about-heading">
-              <span class="section-index">04 /</span> Beyond the projects
+              <span class="section-index">05 /</span> Beyond the projects
             </h2>
           </div>
           <div class="about-grid">
@@ -345,7 +412,6 @@
                 href="assets/images/headshot.webp"
                 aria-label="View Hunter Liles’s photograph"
                 ><img
-                  class="portrait-photo"
                   src="assets/images/headshot.webp"
                   width="720"
                   height="480"
@@ -375,7 +441,7 @@
                 senior year) in golf.
               </p>
             </div>
-            <div class="renderer" id="renderer">
+            <div>
               <h3>From coordinates to pixels</h3>
               <div class="renderer-stage">
                 <canvas

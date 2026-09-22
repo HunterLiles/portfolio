@@ -33,6 +33,19 @@ float sdSphere(vec3 p, float r) {
 
 > A quoted note, spec excerpt, or something worth setting apart.
 
+Inline math uses `$...$` or `\(...\)`: partial fractions split
+$\frac{1}{x^2 - 1}$ into $\frac{1}{2(x-1)} - \frac{1}{2(x+1)}$. Prefer
+`\(...\)` over `$...$` when an expression has multiple underscores
+close together (e.g. subscripts like $x_1$, $x_2$) — Markdown's own
+emphasis parsing can occasionally misread a lone `$...$` pair before
+KaTeX gets to it, and `\(...\)` has no such collision.
+
+Display math uses `$$...$$` or `\[...\]`:
+
+$$
+\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
+$$
+
 | Approach | Trade-off |
 | --- | --- |
 | Option A | Faster, less accurate. |
