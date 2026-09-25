@@ -28,7 +28,9 @@ body::after {
   animation: scanlines-scroll 0.3s linear infinite;
 }
 @keyframes scanlines-scroll {
-  to { background-position-y: -7px; }
+  to {
+    background-position-y: -7px;
+  }
 }
 [hidden] {
   display: none !important;
