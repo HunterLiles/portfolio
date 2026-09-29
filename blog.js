@@ -5,9 +5,13 @@
     return String(value).replace(
       /[&<>"']/g,
       (ch) =>
-        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-          ch
-        ],
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[ch],
     );
   }
 
@@ -84,7 +88,10 @@
         showError("Post not found", "This post is not listed in the blog.");
         return;
       }
-      const markdown = await fetchFile(`posts/${encodeURIComponent(slug)}.md`, "text");
+      const markdown = await fetchFile(
+        `posts/${encodeURIComponent(slug)}.md`,
+        "text",
+      );
       // Markdown is authored in this repository and may contain trusted HTML.
       body.innerHTML = marked.parse(markdown);
       if (typeof renderMathInElement === "function") {
@@ -105,7 +112,10 @@
       body.dataset.state = "ready";
     } catch (err) {
       console.error("Could not load post", err);
-      showError("Post unavailable", "Could not load this post. Please try again later.");
+      showError(
+        "Post unavailable",
+        "Could not load this post. Please try again later.",
+      );
     } finally {
       body.setAttribute("aria-busy", "false");
     }
