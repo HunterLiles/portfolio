@@ -1,17 +1,17 @@
 :root {
   /* Miasma.nvim: charcoal, parchment, fog, muted gold, rust, and moss. */
   --background-color: #222222;
-  --font-color: #d7c483;
+  --font-color: #eee5c5;
   --invert-font-color: #222222;
-  --primary-color: #c9a554;
-  --secondary-color: #c2c2b0;
-  --tertiary-color: #d7c483;
+  --primary-color: #e2bd70;
+  --secondary-color: #d1d1bf;
+  --tertiary-color: #eee5c5;
   --code-bg-color: #1c1c1c;
-  --rust-color: #bb7744;
+  --rust-color: #db9866;
   --global-font-size: 15px;
   --global-line-height: 1.65em;
   --page-width: 1120px;
-  --rule-color: #43492a;
+  --rule-color: #858b65;
   --tap-target: 44px;
 }
 html {
@@ -23,9 +23,13 @@ body::after {
   inset: 0;
   z-index: 5;
   pointer-events: none;
-  background: repeating-linear-gradient(transparent 0 5px, #0000000a 5px 7px);
+  /* Subtle CRT texture and vignette; the overlay never blocks input. */
+  background: repeating-linear-gradient(
+    transparent 0 5px,
+    rgb(0 0 0 / 1.5%) 5px 7px
+  );
   box-shadow: inset 0 0 140px #00000024;
-  animation: scanlines-scroll 0.3s linear infinite;
+  animation: scanlines-scroll 1.5s linear infinite;
 }
 @keyframes scanlines-scroll {
   to {
@@ -37,12 +41,42 @@ body::after {
 }
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+.terminal .btn:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 5px;
 }
 a {
   text-underline-offset: 5px;
+}
+.terminal a:not(.btn) {
+  text-decoration: underline;
+}
+.terminal a:not(.btn):hover {
+  color: var(--invert-font-color);
+  background-color: var(--primary-color);
+}
+.btn.btn-ghost.btn-primary:hover,
+.btn.btn-ghost.btn-primary:focus-visible {
+  color: var(--invert-font-color);
+  background-color: var(--primary-color);
+}
+.terminal button:disabled {
+  opacity: 1;
+  color: var(--secondary-color);
+  background-color: var(--background-color);
+}
+.terminal .terminal-menu li a:not(.btn):hover {
+  color: var(--invert-font-color);
+  background-color: var(--primary-color);
+}
+.prose a,
+.back-link {
+  min-height: 24px;
+}
+.prose code {
+  color: var(--font-color);
+  background-color: var(--code-bg-color);
 }
 .container {
   padding-inline: 32px;
@@ -115,6 +149,14 @@ a {
 }
 .degree {
   margin-bottom: 24px;
+}
+.degree,
+.positioning,
+.project-summary,
+.terminal h1,
+.terminal h2,
+.terminal h3 {
+  overflow-wrap: anywhere;
 }
 .positioning {
   font-size: 18px;
@@ -244,14 +286,6 @@ summary {
 }
 .project-grid .project-media {
   margin-bottom: 22px;
-}
-.draft-copy {
-  border-left: 2px solid var(--rule-color);
-  padding: 18px 0 4px 22px;
-  margin: 32px 0;
-}
-.availability-note {
-  margin-top: 10px;
 }
 .experience-row {
   display: grid;

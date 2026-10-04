@@ -1,0 +1,25 @@
+# LaTeX intermediates; retain the published PDF and source.
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+
+# Editor backups and OS metadata.
+*~
+*.swp
+*.swo
+*.bak
+.DS_Store
+Thumbs.db
+
+# Local caches and temporary/build output.
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.cache/
+/tmp/
+/build/

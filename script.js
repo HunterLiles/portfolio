@@ -62,7 +62,7 @@
       for (let side = 0; side < sides; side++) {
         const index = ring * sides + side;
         const point = projected[index];
-        context.strokeStyle = `rgba(120, 131, 75, ${0.24 + (7 - point[2]) * 0.16})`;
+        context.strokeStyle = `rgba(185, 199, 126, ${Math.max(0.65, Math.min(1, 0.65 + (7 - point[2]) * 0.1))})`;
         context.beginPath();
         for (const neighbor of [
           ring * sides + ((side + 1) % sides),

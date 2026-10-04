@@ -15,10 +15,17 @@
     />
     <meta
       property="og:description"
-      content="Computer graphics is my niche. But, I will go where ever a problem takes me."
+      content="Hunter Liles — pursuing a B.S. in Computer Science and a B.S. in Mathematical Sciences at McNeese State University. With projects in SDF rendering, graphics software, and systems."
     />
     <meta property="og:type" content="website" />
-    <!-- Add canonical, og:url and an absolute og:image URL once the domain is confirmed. -->
+    <link rel="canonical" href="https://hunter-liles.com/" />
+    <meta property="og:url" content="https://hunter-liles.com/" />
+    <meta property="og:site_name" content="Hunter Liles" />
+    <meta property="og:image" content="https://hunter-liles.com/assets/images/headshot.webp" />
+    <meta property="og:image:width" content="720" />
+    <meta property="og:image:height" content="480" />
+    <meta property="og:image:alt" content="Hunter Liles" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/vendor/terminal-0.7.5.min.css" />
     <link rel="stylesheet" href="style.css" />
@@ -70,10 +77,10 @@
             <a href="https://github.com/HunterLiles"
               >GitHub <span aria-hidden="true">↗</span></a
             >
-            <a href="https://www.linkedin.com/in/hunter-liles-128145332/"
+            <a href="https://www.linkedin.com/in/hunter-liles/"
               >LinkedIn <span aria-hidden="true">↗</span></a
             >
-            <a href="mailto:hunterliles06@gmail.com"
+            <a href="mailto:contact@hunter-liles.com"
               >Email <span aria-hidden="true">↗</span></a
             >
           </div>
@@ -123,7 +130,6 @@
                     repeating geometry created through trigonometric functions.
                   </li>
                 </ul>
-                <!-- more here: currently porting the renderer from OpenGL to Vulkan — worth its own writeup on why, and what's changed, once it's further along -->
                 <p class="technologies">C++ / OpenGL / GLSL / SDFs</p>
                 <a
                   class="project-link"
@@ -174,8 +180,9 @@
               </div>
               <h3 id="blossom-heading">Blossom</h3>
               <p class="project-summary">
-                A 2D engine and editor, being rewritten in OpenGL with my own
-                math library.
+                Blossom, a 3D game engine currently being used for experimentation
+                and research of my own. It uses Vulkan, C++, GLFW, Dear ImGui,
+                and a custom math library.
               </p>
               <figure class="project-media">
                 <img
@@ -192,59 +199,23 @@
               </figure>
               <ul class="evidence">
                 <li>
-                  Rewriting the engine with a custom math library, including
-                  2D/3D vectors and 4×4 matrices for camera, view, and
-                  projection calculations.
+                  Developed an understanding of the graphics pipeline.
                 </li>
                 <li>
-                  The earlier prototype's tile editor uses an array of integer
-                  texture IDs to place and remove tiles, with binary files for
-                  loading and saving levels.
+                  Implemented my own tilemap system for 2D level loading using
+                  binary files in the earlier prototype.
                 </li>
                 <li>
-                  Tile changes save as they happen and again when closing a
-                  level; shader hot reload carried over from the earlier
-                  prototype.
+                  The migration to Vulkan is nearly finished.
                 </li>
               </ul>
-              <!-- more here: hoping to bring Blossom to Vulkan next, same as the SDF engine — explain the motivation and what changes once that lands -->
-              <p class="technologies">C++ / OpenGL</p>
+              <p class="technologies">C++ / Vulkan / GLFW / Dear ImGui / Custom math</p>
               <a
                 class="project-link"
-                href="https://github.com/HunterLiles/Blossom"
+                href="https://github.com/HunterLiles/blossom/tree/Vulkan"
                 >Explore the Blossom repository
                 <span aria-hidden="true">↗</span></a
               >
-            </article>
-            <article aria-labelledby="trading-heading">
-              <div class="project-heading">
-                <p class="eyebrow">SYSTEMS / COMPUTATION</p>
-                <span class="status">Details pending</span>
-              </div>
-              <h3 id="trading-heading">Algorithmic Trading System</h3>
-              <p class="project-summary">
-                A project exploring algorithmic trading through software.
-              </p>
-              <div class="draft-copy">
-                <p class="eyebrow">PROJECT NOTES TO COME</p>
-                <p>
-                  The problem, implementation, and engineering decisions will be
-                  documented here.
-                </p>
-                <p class="muted">
-                  Contribution details, working features, and results are being
-                  confirmed.
-                </p>
-              </div>
-              <!-- more here: this project isn't on the resume at all yet — write up the problem, the stack, and what you actually built before this section can leave draft status -->
-              <a
-                class="project-link"
-                href="https://github.com/HunterLiles/Trading"
-                >Trading repository <span aria-hidden="true">↗</span></a
-              >
-              <p class="small muted availability-note">
-                Repository access may be privated.
-              </p>
             </article>
             <article aria-labelledby="terminal-renderer-heading">
               <div class="project-heading">
@@ -256,7 +227,6 @@
                 A dependency-free C renderer that draws 3D scenes as ASCII art
                 directly in the terminal.
               </p>
-              <!-- more here: add a screenshot or asciinema recording of the renderer in action once you have one -->
               <ul class="evidence">
                 <li>
                   Builds the terminal UI itself with termios for input and ANSI
@@ -274,11 +244,10 @@
                   and couldn't support resizing the terminal window intuitively.
                 </li>
               </ul>
-              <!-- more here: point values are currently set manually per the resume — worth describing what automating that would look like once it's built -->
               <p class="technologies">C / ANSI / termios</p>
               <a
                 class="project-link"
-                href="https://github.com/HunterLiles/tui-3d-renderer"
+                href="https://github.com/HunterLiles/terminal-renderer"
                 >Explore the repository <span aria-hidden="true">↗</span></a
               >
             </article>
@@ -334,7 +303,6 @@
                   Work with another undergraduate researcher and a faculty
                   supervisor to explore signed distance fields.
                 </p>
-                <!-- more here: resume keeps this to one line — expand on the research question, what's been tried, and Dr. Lavergne's role as supervisor -->
               </div>
             </article>
             <article class="experience-row">
@@ -359,7 +327,6 @@
                   Chose and set up the church’s replacement computer to fit its
                   needs; continue to support that computer.
                 </p>
-                <!-- more here: resume gives one sentence — this could cover the full scope of what you support, not just the one computer -->
               </div>
             </article>
           </div>
@@ -471,7 +438,7 @@
                 class="small muted"
                 aria-live="polite"
               ></p>
-              <p>A simple 3D renderer inside JS. All handwritten.</p>
+              <p>A simple 3D renderer inside JS. Written with help from Tsoding's video on 3D rendering.</p>
             </div>
           </div>
         </section>
@@ -486,7 +453,7 @@
         </div>
         <div class="footer-links">
           <a href="https://github.com/HunterLiles">GitHub ↗</a
-          ><a href="https://www.linkedin.com/in/hunter-liles-128145332/"
+          ><a href="https://www.linkedin.com/in/hunter-liles/"
             >LinkedIn ↗</a
           ><a href="assets/documents/resume.pdf">Resume ↗</a
           ><a href="blog.html">Blog</a><a href="#top">Back to top ↑</a>

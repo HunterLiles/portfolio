@@ -51,7 +51,7 @@
         article.className = "writing-card";
         article.innerHTML = `
           <p class="writing-meta">${renderMeta(post)}</p>
-          <h3><a href="blog/post.html?slug=${encodeURIComponent(post.slug)}">${escapeHtml(post.title)}</a></h3>
+          <h3><a href="blog/${encodeURIComponent(post.slug)}.html">${escapeHtml(post.title)}</a></h3>
           <p class="writing-excerpt">${escapeHtml(post.excerpt || "")}</p>
           ${post.tech ? `<p class="technologies">${escapeHtml(post.tech)}</p>` : ""}
         `;
@@ -88,28 +88,8 @@
         showError("Post not found", "This post is not listed in the blog.");
         return;
       }
-      const markdown = await fetchFile(
-        `posts/${encodeURIComponent(slug)}.md`,
-        "text",
-      );
-      // Markdown is authored in this repository and may contain trusted HTML.
-      body.innerHTML = marked.parse(markdown);
-      if (typeof renderMathInElement === "function") {
-        renderMathInElement(body, {
-          delimiters: [
-            { left: "$$", right: "$$", display: true },
-            { left: "\\[", right: "\\]", display: true },
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-          ],
-        });
-      }
-      document.title = `${meta.title} — Hunter Liles`;
-      document.getElementById("post-title").textContent = meta.title;
-      document.getElementById("post-meta").innerHTML = renderMeta(meta);
-      document.querySelector('meta[name="description"]').content =
-        meta.excerpt || meta.title;
-      body.dataset.state = "ready";
+      // Keep legacy query-string links working; published pages have static metadata.
+      location.replace(`${encodeURIComponent(slug)}.html`);
     } catch (err) {
       console.error("Could not load post", err);
       showError(
