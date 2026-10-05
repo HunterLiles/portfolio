@@ -180,36 +180,38 @@
               </div>
               <h3 id="blossom-heading">Blossom</h3>
               <p class="project-summary">
-                Blossom, a 3D game engine currently being used for experimentation
-                and research of my own. It uses Vulkan, C++, GLFW, Dear ImGui,
-                and a custom math library.
+                An experimental 3D game engine written in C++ and GLSL using
+                Vulkan, GLFW, Dear ImGui, and a custom math library. It renders
+                separate scene and game views with interactive camera and editor
+                controls.
               </p>
               <figure class="project-media">
                 <img
-                  src="assets/images/blossom.webp"
-                  width="400"
-                  height="225"
+                  src="assets/images/blossom-scene-view.webp"
+                  width="1280"
+                  height="720"
                   loading="lazy"
                   decoding="async"
-                  alt="Earlier Blossom editor showing a two-dimensional scene of trees in two viewports."
+                  alt="Blossom scene view showing a pink cube on a perspective grid beside camera, lighting, transform, and shader controls."
                 />
                 <figcaption>
-                  Earlier Blossom build — the tile editor prototype.
+                  Vulkan scene view with a cube, grid, and editor controls.
                 </figcaption>
               </figure>
               <ul class="evidence">
                 <li>
-                  Developed an understanding of the graphics pipeline.
+                  Separate scene and game views, with a scene grid and animated
+                  cube.
                 </li>
                 <li>
-                  Implemented my own tilemap system for 2D level loading using
-                  binary files in the earlier prototype.
+                  Camera controls, cube inspection and position editing, and
+                  adjustable ambient lighting.
                 </li>
                 <li>
-                  The migration to Vulkan is nearly finished.
+                  Shader reloading while the engine is running.
                 </li>
               </ul>
-              <p class="technologies">C++ / Vulkan / GLFW / Dear ImGui / Custom math</p>
+              <p class="technologies">C++ / GLSL / Vulkan / GLFW / Dear ImGui / Custom math</p>
               <a
                 class="project-link"
                 href="https://github.com/HunterLiles/blossom/tree/Vulkan"
@@ -224,9 +226,23 @@
               </div>
               <h3 id="terminal-renderer-heading">3D Terminal Renderer</h3>
               <p class="project-summary">
-                A dependency-free C renderer that draws 3D scenes as ASCII art
-                directly in the terminal.
+                A dependency-free C renderer that rasterizes meshes and
+                raymarches signed distance fields on the CPU, displaying 3D
+                scenes in the terminal using Braille characters and ANSI colors.
               </p>
+              <figure class="project-media">
+                <img
+                  src="assets/images/terminal-renderer-displaced-sphere.gif"
+                  width="992"
+                  height="656"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Animated raymarched sphere with surface displacement rendered in the terminal using Braille characters."
+                />
+                <figcaption>
+                  Raymarched sphere SDF with surface displacement.
+                </figcaption>
+              </figure>
               <ul class="evidence">
                 <li>
                   Builds the terminal UI itself with termios for input and ANSI
@@ -234,9 +250,9 @@
                   dependencies.
                 </li>
                 <li>
-                  Projects 3D points with x/z and y/z perspective and custom
-                  transforms into terminal screen coordinates, then maps a
-                  floating-point framebuffer to an ASCII gradient to draw them.
+                  Supports both mesh rasterization and signed distance field
+                  raymarching on the CPU, with Braille characters for the image
+                  and ANSI escape codes for color.
                 </li>
                 <li>
                   Wrote a small vector type in C instead of plain arrays, since
